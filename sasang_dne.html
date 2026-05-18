@@ -1,0 +1,667 @@
+<html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사상체질 가이드 - 계양다나음한방병원</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#f0f4f3;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px}
+.top-bar{width:100%;max-width:680px;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.dl-btn{display:flex;align-items:center;gap:6px;padding:7px 14px;background:#2a9d8f;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .2s}
+.dl-btn:hover{background:#1f8072}
+.hospital{color:#2a9d8f;font-size:17px;font-weight:700;letter-spacing:-0.3px}
+.step-info{font-size:12px;color:#999}
+.progress-wrap{width:100%;max-width:680px;margin-bottom:18px}
+.progress-bar{height:5px;background:#dde;border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#2a9d8f,#57cc99);border-radius:3px;transition:width .35s ease}
+.card{background:#fff;border-radius:18px;padding:32px 28px;width:100%;max-width:680px;box-shadow:0 2px 16px rgba(0,0,0,.07)}
+.q-badge{display:inline-block;background:#e8f7f5;color:#2a9d8f;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+.q-title{font-size:21px;font-weight:700;color:#111;margin-bottom:6px;line-height:1.35}
+.q-sub{font-size:14px;color:#777;margin-bottom:24px;line-height:1.5}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;padding:15px 18px;border:2px solid #e8eaea;border-radius:12px;background:#fff;cursor:pointer;text-align:left;font-size:15px;color:#222;transition:all .18s;font-family:inherit;width:100%}
+.opt:hover{border-color:#2a9d8f;background:#f0faf9;transform:translateY(-1px);box-shadow:0 4px 12px rgba(42,157,143,.13)}
+.opt:active{transform:translateY(0)}
+.opt-num{width:30px;height:30px;border-radius:50%;background:#f0faf9;border:2px solid #2a9d8f;color:#2a9d8f;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.back-btn{margin-top:18px;background:none;border:none;color:#aaa;font-size:13px;cursor:pointer;padding:6px;font-family:inherit}
+.back-btn:hover{color:#555}
+/* Result */
+.res-wrap{text-align:center}
+.res-emoji{font-size:56px;margin-bottom:8px}
+.res-badge{display:inline-block;font-size:38px;font-weight:900;padding:12px 36px;border-radius:14px;margin-bottom:16px;letter-spacing:5px}
+.res-badge.te{background:#d5e8d4;color:#2d6a4f}
+.res-badge.sy{background:#ffd6d6;color:#b03030}
+.res-badge.se{background:#dae8fc;color:#1a5296}
+.res-badge.ty{background:#1a237e;color:#fff}
+.res-badge.sy2{background:#ffd6d6;color:#b03030}
+.res-title{font-size:22px;font-weight:700;color:#111;margin-bottom:6px}
+.res-sub{font-size:14px;color:#777;margin-bottom:22px}
+.res-desc{margin-bottom:20px}
+.res-sections{display:flex;flex-direction:column;gap:12px;text-align:left}
+.res-sec{background:#fafafa;border-radius:12px;padding:14px 16px}
+.sec-hd{font-size:14px;font-weight:700;color:#2a9d8f;margin-bottom:8px}
+.sec-body{font-size:13.5px;color:#444;line-height:1.7}
+.food-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.food-col b{display:block;font-size:12px;font-weight:700;margin-bottom:6px;padding:3px 8px;border-radius:6px;text-align:center}
+.food-col.good b{background:#d4edda;color:#155724}
+.food-col.bad b{background:#f8d7da;color:#721c24}
+.food-tags{display:flex;flex-wrap:wrap;gap:5px}
+.food-tag{font-size:12px;padding:3px 8px;border-radius:20px;font-weight:500}
+.food-col.good .food-tag{background:#e8f5e9;color:#2e7d32}
+.food-col.bad .food-tag{background:#fce4ec;color:#880e4f}
+.diet-box{margin-top:10px;background:#e8f7f5;border-radius:8px;padding:10px 12px;font-size:13px;color:#1a5c54;line-height:1.65}
+.diet-box strong{display:block;margin-bottom:3px;font-weight:700}
+.exer-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.exer-tag{background:#f0faf9;border:1.5px solid #2a9d8f;color:#2a9d8f;font-size:12px;padding:4px 11px;border-radius:20px;font-weight:600}
+.dl-link{display:inline-flex;align-items:center;gap:6px;padding:13px 28px;background:#fff;color:#2a9d8f;border:2px solid #2a9d8f;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .2s}
+.dl-link:hover{background:#e8f7f5}
+.restart{padding:13px 40px;background:#2a9d8f;color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .2s}
+.restart:hover{background:#1f8072}
+.note{display:inline-block;background:#fff8e1;color:#7a5800;font-size:12px;padding:3px 10px;border-radius:4px;margin-bottom:14px}
+
+/* ── 다이어트 전략 섹션 ── */
+.diet-strat-sec{background:#f0fdf9;border-radius:12px;padding:16px;border:1.5px solid #b2dfdb;text-align:left}
+.diet-headline{font-size:13.5px;font-weight:700;color:#1a5c54;margin:8px 0 14px;padding:10px 12px;background:#e0f2f1;border-radius:8px;text-align:center;line-height:1.5}
+.strat-item{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid #e0f2f1}
+.strat-item:last-child{border-bottom:none;padding-bottom:0}
+.strat-icon{font-size:20px;flex-shrink:0;width:26px;text-align:center;padding-top:1px}
+.strat-text{flex:1}
+.strat-label{font-size:11.5px;font-weight:700;color:#2a9d8f;margin-bottom:3px;letter-spacing:.3px}
+.strat-body{font-size:13px;color:#444;line-height:1.55}
+
+/* ── 공유 버튼 ── */
+.share-btn{width:100%;padding:15px;background:linear-gradient(135deg,#2a9d8f,#40b59f);color:#fff;border:none;border-radius:14px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;margin-bottom:10px;letter-spacing:.3px}
+.share-btn:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 6px 20px rgba(42,157,143,.3)}
+.action-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:4px}
+
+/* ── 공유 오버레이 ── */
+.share-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1000;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px)}
+.share-overlay.active{display:flex}
+.share-modal{background:#fff;border-radius:22px;width:100%;max-width:400px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);animation:slideUp .3s ease}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.share-modal-hd{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #f0f0f0}
+.share-modal-title{font-size:15px;font-weight:700;color:#111}
+.close-x{background:none;border:none;font-size:24px;cursor:pointer;color:#bbb;line-height:1;padding:0 2px;transition:color .15s}
+.close-x:hover{color:#555}
+.share-card-wrap{padding:14px;background:#f5f6f7}
+/* 실제 캡처될 카드 */
+.share-card{border-radius:18px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.18)}
+.card-inner{padding:26px 22px 20px}
+.card-hosp-row{font-size:10px;font-weight:700;letter-spacing:1.5px;opacity:.75;margin-bottom:18px;display:flex;align-items:center;gap:5px}
+.card-emoji-big{font-size:48px;margin-bottom:6px;display:block;line-height:1}
+.card-name-ko{font-size:44px;font-weight:900;letter-spacing:5px;line-height:1;margin-bottom:4px}
+.card-name-hanja{font-size:14px;font-weight:400;opacity:.7;margin-bottom:2px}
+.card-sub-text{font-size:12px;opacity:.75;margin-bottom:18px}
+.card-rule{height:1px;background:rgba(255,255,255,.25);margin-bottom:16px}
+.card-blk{margin-bottom:14px}
+.card-blk-label{font-size:9.5px;font-weight:700;letter-spacing:2px;opacity:.6;margin-bottom:5px;text-transform:uppercase}
+.card-blk-value{font-size:13px;font-weight:600;line-height:1.5;opacity:.95}
+.card-food-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.card-ftag{font-size:11px;padding:3px 9px;border-radius:20px;background:rgba(255,255,255,.2);font-weight:600;border:1px solid rgba(255,255,255,.25)}
+.card-footer{padding:10px 18px;background:rgba(0,0,0,.22);display:flex;align-items:center;justify-content:space-between;font-size:10.5px;opacity:.9;font-weight:500}
+/* share actions */
+.share-acts{display:flex;gap:8px;padding:12px 14px}
+.sact-btn{flex:1;padding:12px 8px;border:none;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .18s;letter-spacing:.2px}
+.sact-dl{background:#2a9d8f;color:#fff}
+.sact-dl:hover{background:#1f8072}
+.sact-ss{background:#f0faf9;color:#2a9d8f;border:1.5px solid #2a9d8f}
+.share-tip{font-size:11px;color:#aaa;text-align:center;padding:0 14px 14px;line-height:1.5}
+
+@media(max-width:480px){.card{padding:24px 18px}.q-title{font-size:18px}.res-badge{font-size:30px;padding:10px 24px}.share-modal{max-width:100%}}
+
+/* ── 온보딩 슬라이드 ── */
+.ob-wrap{width:100%;max-width:680px}
+.ob-card{background:#fff;border-radius:18px;padding:36px 28px 28px;box-shadow:0 2px 16px rgba(0,0,0,.07);min-height:420px;display:flex;flex-direction:column;justify-content:space-between}
+
+/* 상단 도트 인디케이터 */
+.ob-dots{display:flex;justify-content:center;gap:8px;margin-bottom:28px}
+.ob-dot{width:8px;height:8px;border-radius:50%;background:#dde;transition:all .25s}
+.ob-dot.active{width:24px;border-radius:4px;background:#2a9d8f}
+
+/* 슬라이드 콘텐츠 */
+.ob-body{flex:1;display:flex;flex-direction:column;justify-content:center}
+
+/* 슬라이드 1 */
+.ob-eyebrow{font-size:11px;font-weight:700;color:#2a9d8f;letter-spacing:2.5px;margin-bottom:16px;text-transform:uppercase;text-align:center}
+.ob-title{font-size:32px;font-weight:900;color:#111;line-height:1.2;letter-spacing:-1.5px;text-align:center;margin-bottom:14px}
+.ob-title em{color:#2a9d8f;font-style:normal}
+.ob-sub{font-size:14px;color:#777;line-height:1.75;text-align:center}
+.ob-icon-big{font-size:64px;text-align:center;margin-bottom:18px;display:block;line-height:1}
+
+/* 슬라이드 2 - 체질 카드 */
+.ob-types-label{font-size:13px;font-weight:700;color:#333;margin-bottom:14px;text-align:center}
+.ob-types-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ob-tc{border-radius:14px;padding:14px 13px 12px;border:2px solid transparent}
+.ob-tc.te{background:#d5e8d4;border-color:#b2d5b0}
+.ob-tc.sy{background:#ffd6d6;border-color:#f5b5b5}
+.ob-tc.se{background:#dae8fc;border-color:#b5cff5}
+.ob-tc.ty{background:#ece5f7;border-color:#cbb8ef}
+.ob-tc-emoji{font-size:20px;display:block;margin-bottom:5px}
+.ob-tc-name{font-size:15px;font-weight:900;color:#111;letter-spacing:.5px;margin-bottom:1px}
+.ob-tc-hanja{font-size:10px;color:#777;margin-bottom:5px}
+.ob-tc-pct{display:inline-block;background:rgba(255,255,255,.7);border-radius:20px;padding:2px 8px;font-size:10px;font-weight:700;color:#555;margin-bottom:5px}
+.ob-tc-desc{font-size:11px;color:#555;line-height:1.5}
+
+/* 슬라이드 3 - 검사 안내 */
+.ob-info-list{display:flex;flex-direction:column;gap:12px;margin-bottom:6px}
+.ob-info-item{display:flex;align-items:center;gap:16px;background:#f8fffe;border-radius:12px;padding:14px 16px;border:1.5px solid #e0f0ee}
+.ob-info-icon{font-size:26px;flex-shrink:0}
+.ob-info-text{}
+.ob-info-title{font-size:14px;font-weight:700;color:#111;margin-bottom:2px}
+.ob-info-desc{font-size:12.5px;color:#888;line-height:1.5}
+
+/* 하단 버튼 영역 */
+.ob-footer{margin-top:24px}
+.ob-next-btn{width:100%;padding:16px;background:linear-gradient(135deg,#2a9d8f,#40b59f);color:#fff;border:none;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:.4px;transition:all .2s}
+.ob-next-btn:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 6px 20px rgba(42,157,143,.25)}
+.ob-skip{display:block;text-align:center;margin-top:12px;font-size:12px;color:#bbb;cursor:pointer;background:none;border:none;font-family:inherit;width:100%}
+.ob-skip:hover{color:#888}
+.ob-disclaimer{text-align:center;font-size:11px;color:#ccc;line-height:1.6;margin-top:10px}
+</style>
+</head>
+<body>
+<!-- ── 온보딩 ── -->
+<div id="obScreen" class="ob-wrap">
+  <div class="ob-card">
+    <div class="ob-dots" id="obDots">
+      <div class="ob-dot active"></div>
+      <div class="ob-dot"></div>
+    </div>
+    <div class="ob-body" id="obBody"></div>
+    <div class="ob-footer">
+      <button class="ob-next-btn" id="obNextBtn" onclick="obNext()">다음</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── 퀴즈 (온보딩 끝나면 표시) ── -->
+<div id="quizHeader" style="display:none;width:100%;max-width:680px">
+  <div class="top-bar">
+    <div class="hospital">🌿 사상체질 가이드 -계양다나음한방병원-</div>
+    <div class="step-info" id="stepInfo">0번째 질문</div>
+    <button class="dl-btn" onclick="downloadSelf()">⬇ 다운로드</button>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="pFill" style="width:0%"></div></div>
+  </div>
+</div>
+<div class="card" id="card" style="display:none"></div>
+
+<!-- 공유 오버레이 -->
+<div class="share-overlay" id="shareOverlay" onclick="overlayClick(event)">
+  <div class="share-modal" id="shareModal">
+    <div class="share-modal-hd">
+      <div class="share-modal-title">📤 결과 공유하기</div>
+      <button class="close-x" onclick="closeShare()">×</button>
+    </div>
+    <div class="share-card-wrap">
+      <div class="share-card" id="shareCard"><!-- 동적 생성 --></div>
+    </div>
+    <div class="share-acts">
+      <button class="sact-btn sact-dl" id="sharePrimaryBtn" onclick="shareCard(this)">📤 공유하기</button>
+      <button class="sact-btn sact-ss" onclick="downloadCard(this)">⬇ 저장</button>
+      <button class="sact-btn sact-ss" onclick="closeShare()">닫기</button>
+    </div>
+    <div class="share-tip" id="shareTip">카드 이미지를 생성해 카카오톡·인스타그램 등으로 바로 공유할 수 있습니다 🙏</div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+// ── 질문 트리 ────────────────────────────────────────────────
+const Q = {
+  Q1:{num:1,title:'골격',text:'다음 중 본인의 골격에 해당하는 것을 고르세요.',
+    opts:['골격이 굵고 살이 찐 편이다','골격이 작고 균형이 잡혀있다','골격이 보통이며 다부진 체격이다'],
+    next:a=>a===0?'Q3':'Q2'},
+  Q2:{num:2,title:'땀',text:'평소 땀에 관한 설명 중 해당하는 것을 고르세요.',
+    opts:['평소 땀이 많고 땀을 흘리면 오히려 상쾌하다','평소 땀이 많지 않고 조금만 땀을 내면 피곤하다','평소 땀은 보통이고 땀을 흘려도 피곤하지 않다'],
+    next:a=>a===1?'Q4B':'Q6'},
+  Q3:{num:3,title:'소변',text:'몸이 안 좋으면 소변부터 안 좋아지시나요?',
+    opts:['예','아니오'],
+    next:a=>a===0?'Q5':'Q4A'},
+  Q4A:{num:4,title:'체형',text:'다음 중 당신의 체형은 어디에 해당합니까?',
+    opts:['목덜미가 두텁고 허리가 없다','가슴 어깨가 발달하고 엉덩이가 볼품 없다','허리 아랫배가 발달하고 목덜미가 빈약하다','엉덩이 허벅지는 크고 가슴 어깨가 좁거나 작다'],
+    next:a=>(a===1||a===2)?'태음인':'Q7'},
+  Q4B:{num:4,title:'체형',text:'다음 중 당신의 체형은 어디에 해당합니까?',
+    opts:['목덜미가 두텁고 허리가 없다','가슴 어깨가 발달하고 엉덩이가 볼품 없다','허리 아랫배가 발달하고 목덜미가 빈약하다','엉덩이 허벅지는 크고 가슴 어깨가 좁거나 작다'],
+    next:a=>(a===0||a===3)?'소음인':'Q9'},
+  Q5:{num:5,title:'걸음걸이',text:'당신의 걸음걸이는 다음 중 어디에 해당합니까?',
+    opts:['걸음이 느리고 무게있다','걸음이 자연스럽고 얌전하다','걸음걸이가 빠르고 몸을 흔들며 걷는다','걸음걸이가 꼿꼿하다'],
+    next:a=>a===0?'태음인':'Q10A'},
+  Q6:{num:6,title:'성격',text:'성격은 다음 중 어디에 해당합니까?',
+    opts:['거침 없고 과감하고 단호하다','활동적이며 용감하다','의젓하며 격식을 차린다','온순하고 꾸밈이 없다'],
+    next:a=>(a===0||a===1)?'Q11A':'Q8'},
+  Q7:{num:7,title:'일처리 습관',text:'당신의 일처리 습관은 어떤 쪽에 해당합니까?',
+    opts:['무슨 일이든 밀고나간다','일을 벌여 놓기만 하고 마무리는 잘 못하는 편이다','움직이기 보다는 조용히 혼자서 일을 추진한다','한 곳에 있으려고 하고 나다니려 하지 않는다'],
+    next:a=>a===2?'Q14A':'Q12A'},
+  Q8:{num:8,title:'대인관계',text:'처음에 남 앞에 잘 나서지 못하는 편입니까?',
+    opts:['예','아니오'],
+    next:a=>a===0?'Q12B':'Q13'},
+  Q9:{num:9,title:'관심도',text:'나의 일이 아닌 것에는 무관심한 편입니까?',
+    opts:['예','아니오'],
+    next:a=>a===0?'Q10B':'소양인'},
+  Q10A:{num:10,title:'체형',text:'당신의 체형은 어떻습니까?',
+    opts:['뚱뚱한 편','보통','마른 편 (살이 쪘다면 부분 비만)'],
+    next:a=>a===0?'태음인':a===1?'소양인(태음인)':'소음인'},
+  Q10B:{num:10,title:'체형',text:'당신의 체형은 어떻습니까?',
+    opts:['뚱뚱한 편','보통','마른 편 (살이 쪘다면 부분 비만)'],
+    next:a=>a===0?'Q_multi':a===1?'소양인':'소음인'},
+  Q10C:{num:10,title:'체형',text:'당신의 체형은 어떻습니까?',
+    opts:['뚱뚱한 편','보통','마른 편 (살이 쪘다면 부분 비만)'],
+    next:a=>a===0?'태양인':'소음인'},
+  Q11A:{num:11,title:'땀과 컨디션',text:'몸이 안 좋을 때 땀을 내면 개운해지나요?',
+    opts:['예','아니오'],
+    next:a=>a===0?'태음인':'소양인'},
+  Q11B:{num:11,title:'땀과 컨디션',text:'몸이 안 좋을 때 땀을 내면 개운해지나요?',
+    opts:['예','아니오'],
+    next:a=>a===0?'태음인':'소양인'},
+  Q12A:{num:12,title:'가슴 형태',text:'당신의 가슴은 다음 중 어디에 해당합니까?',
+    opts:['넓고 잘 발달되어 있다 (비만형)','빈약하고 구부정하다 (새장형)','넓고 튼튼하다 (근육형)','가슴이 벌어진 편이며 건실하다'],
+    next:a=>a===3?'소양인':'태음인'},
+  Q12B:{num:12,title:'가슴 형태',text:'당신의 가슴은 다음 중 어디에 해당합니까?',
+    opts:['넓고 잘 발달되어 있다 (비만형)','빈약하고 구부정하다 (새장형)','넓고 튼튼하다 (근육형)','가슴이 벌어진 편이며 건실하다'],
+    next:a=>(a===0||a===2)?'Q11B':'Q10C'},
+  Q13:{num:13,title:'감정과 일처리',text:'기분이나 감정에 따라 일을 처리합니까?',
+    opts:['예','아니오'],
+    next:a=>a===0?'소양인':'Q1R'},
+  Q14A:{num:14,title:'사교성',text:'모임이 있을 때 핑계를 대고 빠지는 경우가 많은 편입니까?',
+    opts:['예','아니오'],
+    next:a=>a===0?'태음인':'소양인(태음인)'},
+  Q1R:{num:1,title:'골격 (재확인)',text:'처음 질문입니다. 본인의 골격에 해당하는 것을 고르세요.',
+    isRecheck:true,
+    opts:['골격이 굵고 살이 찐 편이다','골격이 작고 균형이 잡혀있다','골격이 보통이며 다부진 체격이다'],
+    next:a=>a===2?'소양인':'태음인'},
+  Q15:{num:15,title:'생활 패턴',text:'밖으로 나돌다보니 집안에 문제가 생기는 경우가 있습니까?',opts:['예','아니오']},
+  Q16:{num:16,title:'생활 패턴',text:'진득하게 한 곳에 오래 있을 수 있는 편입니까?',opts:['예','아니오']},
+  Q14B:{num:14,title:'사교성',text:'모임이 있을 때 핑계를 대고 빠지는 경우가 많은 편입니까?',
+    opts:['예','아니오'],
+    next:a=>a===0?'소음인':'태음인'},
+};
+
+// ── 결과 데이터 ──────────────────────────────────────────────
+const RESULTS = {
+  '태음인':{label:'태음인',badge:'te',hanja:'太陰人',
+    sub:'보수적이고 끈기 있는 체질',
+    desc:'<div class="res-sections"><div class="res-sec"><div class="sec-hd">🔍 체질 특징</div><div class="sec-body">허리·아랫배 부위가 발달하고 목덜미가 약한 편입니다. 살이 찌기 쉽고 한 번 찌면 빠지기 어렵습니다. 땀을 내면 개운해지며, 의젓하고 격식을 차리며 안정을 중시합니다. 끈기와 인내력이 강하며 폐·기관지 기능이 약합니다.</div></div><div class="res-sec"><div class="sec-hd">⚖ 살이 찌는 이유</div><div class="sec-body">태음인은 네 체질 중 가장 살이 찌기 쉬운 체질입니다.<br>• 소화·흡수력이 뛰어나 적게 먹어도 영양이 잘 축적됩니다.<br>• 담음(痰飮): 체내 불필요한 수분·노폐물이 쌓여 부종과 비만으로 이어집니다.<br>• 폐 기능이 약해 땀이 잘 나지 않으면 노폐물이 배출되지 못하고 지방으로 축적됩니다.<br>• 간열(肝熱)로 지방 대사가 느려지고 복부·허리에 지방이 집중됩니다.<br>• 식욕이 왕성하고 과식 경향이 있어 칼로리 과잉 섭취가 쉽습니다.</div></div><div class="res-sec"><div class="sec-hd">⚕ 병의 원인</div><div class="sec-body">간열(肝熱) — 간에 열이 쌓여 기능이 항진됩니다.<br>장냉(腸冷) — 장이 냉해지면서 소화·흡수 장애가 생깁니다.<br>폐조(肺燥) — 폐가 건조해져 기관지·피부 문제가 발생합니다.<br>담음(痰飮) — 체내에 불필요한 수분이 쌓이며 비만·부종이 옵니다.</div></div><div class="res-sec"><div class="sec-hd">🍱 음식 안내</div><div class="food-row"><div class="food-col good"><b>✅ 이로운 음식</b><div class="food-tags"><span class="food-tag">소고기</span><span class="food-tag">두부·청국장</span><span class="food-tag">버섯류</span><span class="food-tag">연근·우엉</span><span class="food-tag">율무</span><span class="food-tag">견과류</span><span class="food-tag">밀·수수</span><span class="food-tag">배·살구·매실</span></div></div><div class="food-col bad"><b>❌ 해로운 음식</b><div class="food-tags"><span class="food-tag">게·문어</span><span class="food-tag">연어·조개</span><span class="food-tag">닭고기</span><span class="food-tag">사과·복숭아</span><span class="food-tag">계피·인삼</span></div></div></div><div class="diet-box"><strong>💡 식단 포인트</strong>연근·율무·뿌리채소·버섯 중심의 식단을 권장합니다. 기름진 음식과 과식은 피하고 소식(小食)하되 균형 있게 드세요.<br><strong>🍵 추천 차</strong>국화차 · 오미자차 · 칡차</div></div><div class="res-sec"><div class="sec-hd">🏃 체질별 운동</div><div class="exer-tags"><span class="exer-tag">복근운동</span><span class="exer-tag">빠른 걷기</span><span class="exer-tag">달리기</span><span class="exer-tag">테니스</span><span class="exer-tag">등산</span><span class="exer-tag">수영</span></div><div class="sec-body" style="margin-top:8px">땀이 날 정도의 유산소 운동이 효과적입니다. 복부비만 예방을 위한 복근운동과 지속적인 유산소 운동을 병행하세요.</div></div></div>'},
+  '소양인':{label:'소양인',badge:'sy',hanja:'少陽人',
+    sub:'활동적이고 외향적인 체질',
+    desc:'<div class="res-sections"><div class="res-sec"><div class="sec-hd">🔍 체질 특징</div><div class="sec-body">가슴·어깨가 발달하고 엉덩이·허리가 약한 역삼각형 체형이 많습니다. 살이 잘 찌지 않습니다. 활동적이고 외향적이며 감정 표현이 솔직합니다. 새로운 일을 시작하는 것을 좋아하나 마무리가 약한 경향이 있습니다. 신장·방광이 약합니다.</div></div><div class="res-sec"><div class="sec-hd">⚖ 살이 찌는 이유</div><div class="sec-body">소양인은 기본적으로 살이 잘 찌지 않는 체질입니다.<br>• 위열(胃熱)로 식욕이 강하고 스트레스를 받으면 폭식하기 쉬워 복부비만이 생길 수 있습니다.<br>• 신장·방광 기능이 약해 수분 대사가 나빠지면 부종성 체중 증가가 옵니다.<br>• 활동량이 줄어드는 중년 이후 복부에 집중적으로 살이 찌는 경향이 있습니다.<br>• 열이 많아 달고 찬 음식을 자주 찾게 되면 당분·지방 과잉으로 이어질 수 있습니다.</div></div><div class="res-sec"><div class="sec-hd">⚕ 병의 원인</div><div class="sec-body">음혈부족(陰血不足) — 체내 음기와 혈이 부족해 상열(上熱) 증상이 나타납니다.<br>심장화(心火) — 마음의 열이 올라 두통·불안감이 생깁니다.<br>위열(胃熱) — 위장에 열이 쌓여 소화장애·변비가 발생합니다.</div></div><div class="res-sec"><div class="sec-hd">🍱 음식 안내</div><div class="food-row"><div class="food-col good"><b>✅ 이로운 음식</b><div class="food-tags"><span class="food-tag">보리·녹두·팥</span><span class="food-tag">오이·참외·수박</span><span class="food-tag">상추·배추</span><span class="food-tag">돼지고기(수육)</span><span class="food-tag">굴·전복·해삼</span><span class="food-tag">새우·해산물</span></div></div><div class="food-col bad"><b>❌ 해로운 음식</b><div class="food-tags"><span class="food-tag">닭고기</span><span class="food-tag">개고기·오리</span><span class="food-tag">인삼·홍삼·꿀</span><span class="food-tag">매운 음식</span><span class="food-tag">기름진 음식</span></div></div></div><div class="diet-box"><strong>💡 식단 포인트</strong>서늘하고 담백한 음식 위주로 드세요. 돼지고기 수육과 해산물이 좋으며, 매운 음식과 기름진 음식은 피합니다.<br><strong>🍵 추천 차</strong>구기자차 · 녹차 · 박하차 · 보리차</div></div><div class="res-sec"><div class="sec-hd">🏃 체질별 운동</div><div class="exer-tags"><span class="exer-tag">런지·스쿼트</span><span class="exer-tag">자전거</span><span class="exer-tag">수영</span><span class="exer-tag">하체 강화 운동</span></div><div class="sec-body" style="margin-top:8px">하체 강화가 특히 중요합니다. 과격한 운동보다 규칙적인 하체 강화 운동을 권장합니다. 과로는 피하세요.</div></div></div>'},
+  '소양인(태음인)':{label:'소양인',badge:'sy2',hanja:'少陽人',
+    sub:'소양인 (태음인 경향도 있음)',
+    desc:'<div class="res-sections"><div class="res-sec"><div class="sec-hd">🔍 체질 특징</div><div class="sec-body">가슴·어깨가 발달하고 엉덩이·허리가 약한 편입니다. 소양인으로 판정되었으나 태음인적 경향도 함께 있을 수 있습니다. 정확한 체질 감별을 위해 한의사와의 상담을 권장합니다. 활동적이고 외향적이며 감정 표현이 솔직한 편입니다.</div></div><div class="res-sec"><div class="sec-hd">⚖ 살이 찌는 이유</div><div class="sec-body">소양인이지만 태음인적 경향이 있어 살이 찌는 패턴이 혼합형으로 나타날 수 있습니다.<br>• 위열(胃熱)로 인한 과식과 태음인의 높은 흡수력이 겹쳐 체중 증가로 이어질 수 있습니다.<br>• 스트레스 시 폭식 경향이 있어 복부비만이 생기기 쉽습니다.<br>• 수분 대사 이상 시 부종과 함께 체중이 증가합니다.<br>• 정확한 체질 감별 후 맞춤 체중 관리를 받는 것이 중요합니다.</div></div><div class="res-sec"><div class="sec-hd">⚕ 병의 원인</div><div class="sec-body">음혈부족(陰血不足) — 체내 음기와 혈이 부족해 상열(上熱) 증상이 나타납니다.<br>심장화(心火) — 마음의 열이 올라 두통·불안감이 생깁니다.<br>위열(胃熱) — 위장에 열이 쌓여 소화장애가 발생합니다.</div></div><div class="res-sec"><div class="sec-hd">🍱 음식 안내</div><div class="food-row"><div class="food-col good"><b>✅ 이로운 음식</b><div class="food-tags"><span class="food-tag">보리·녹두·팥</span><span class="food-tag">돼지고기(수육)</span><span class="food-tag">굴·전복·해산물</span><span class="food-tag">오이·상추</span><span class="food-tag">수박·참외</span></div></div><div class="food-col bad"><b>❌ 해로운 음식</b><div class="food-tags"><span class="food-tag">닭고기·개고기</span><span class="food-tag">인삼·홍삼·꿀</span><span class="food-tag">매운 음식</span><span class="food-tag">기름진 음식</span></div></div></div><div class="diet-box"><strong>💡 식단 포인트</strong>소양인 식단을 기본으로 하되, 담백하고 균형 있는 식단을 유지하세요. 서늘한 음식과 해산물 위주가 좋습니다.<br><strong>🍵 추천 차</strong>구기자차 · 녹차 · 박하차</div></div><div class="res-sec"><div class="sec-hd">🏃 체질별 운동</div><div class="exer-tags"><span class="exer-tag">런지·스쿼트</span><span class="exer-tag">자전거</span><span class="exer-tag">수영</span><span class="exer-tag">하체 강화</span></div><div class="sec-body" style="margin-top:8px">하체 강화를 중심으로 규칙적인 운동을 하세요. 과격한 운동은 피하고 꾸준한 유산소 운동을 권장합니다.</div></div></div>'},
+  '소음인':{label:'소음인',badge:'se',hanja:'少陰人',
+    sub:'섬세하고 내향적인 체질',
+    desc:'<div class="res-sections"><div class="res-sec"><div class="sec-hd">🔍 체질 특징</div><div class="sec-body">상체보다 하체가 발달한 편이며, 보통이거나 마른 체형이 많습니다. 섬세하고 꼼꼼하며 내향적입니다. 한 번 시작한 일을 끝까지 마무리하는 경향이 있습니다. 소화 기능이 약하고 찬 음식에 민감하며, 신장·비장 기능이 약합니다.</div></div><div class="res-sec"><div class="sec-hd">⚖ 살이 찌는 이유</div><div class="sec-body">소음인은 적게 먹어도 살이 찌기 쉬운 경향이 있습니다.<br>• 양기부족(陽氣不足)으로 기초체온이 낮고 신진대사가 느려 에너지 소비가 적습니다.<br>• 위장이 약해 소화는 더디지만 영양 흡수율이 높아 쉽게 체지방으로 축적됩니다.<br>• 추위를 많이 타서 활동량이 줄고 운동에너지 소비가 감소합니다.<br>• 특히 엉덩이·허벅지 등 하체에 살이 찌는 하체비만 경향이 있습니다.<br>• 찬 음식과 과식이 위장 기능을 악화시켜 부종과 체중 증가를 유발합니다.</div></div><div class="res-sec"><div class="sec-hd">⚕ 병의 원인</div><div class="sec-body">양기부족(陽氣不足) — 몸의 양기(따뜻한 기운)가 부족해 수족냉증·소화불량이 생깁니다.<br>신장기운막힘 — 신장의 기운이 막혀 체내 에너지 순환이 저하됩니다.<br>위장기능약화 — 위장 기능이 약해 소화 흡수력이 떨어집니다.</div></div><div class="res-sec"><div class="sec-hd">🍱 음식 안내</div><div class="food-row"><div class="food-col good"><b>✅ 이로운 음식</b><div class="food-tags"><span class="food-tag">닭고기·오리고기</span><span class="food-tag">찹쌀·현미</span><span class="food-tag">감자·고구마</span><span class="food-tag">귤·대추</span><span class="food-tag">인삼·홍삼</span><span class="food-tag">생강·마늘·계피</span><span class="food-tag">따뜻한 음식</span></div></div><div class="food-col bad"><b>❌ 해로운 음식</b><div class="food-tags"><span class="food-tag">돼지고기</span><span class="food-tag">보리</span><span class="food-tag">찬 음식·냉수</span><span class="food-tag">아이스크림</span><span class="food-tag">우유</span><span class="food-tag">참외·수박</span></div></div></div><div class="diet-box"><strong>💡 식단 포인트</strong>따뜻하고 소화가 잘 되는 음식 위주로 드세요. 찬 음식은 절대 피하고, 인삼·홍삼 등 보기(補氣) 음식을 꾸준히 섭취하세요.<br><strong>🍵 추천 차</strong>감초차 · 계피차 · 귤피차 · 인삼차</div></div><div class="res-sec"><div class="sec-hd">🏃 체질별 운동</div><div class="exer-tags"><span class="exer-tag">상체 근력운동</span><span class="exer-tag">헬스·체조</span><span class="exer-tag">조깅</span><span class="exer-tag">요가</span><span class="exer-tag">수영</span></div><div class="sec-body" style="margin-top:8px">무리하지 않고 꾸준히 하는 것이 중요합니다. 상체 강화 근력운동과 가벼운 유산소 운동을 병행하세요.</div></div></div>'},
+  '태양인':{label:'태양인',badge:'ty',hanja:'太陽人',
+    sub:'창의적이고 진취적인 체질 (전체 인구의 1% 미만)',
+    desc:'<div class="res-sections"><div class="res-sec"><div class="sec-hd">🔍 체질 특징</div><div class="sec-body">목덜미·후두부가 발달하고 허리·엉덩이가 약합니다. 전체 인구의 1% 미만인 매우 희귀한 체질입니다. 창의적이고 진취적이며 사회성이 뛰어납니다. 독창적인 아이디어와 강한 추진력을 가집니다. 간 기능과 소화 기능이 매우 약합니다.</div></div><div class="res-sec"><div class="sec-hd">⚖ 살이 찌는 이유</div><div class="sec-body">태양인은 전체적으로 살이 찌기 어려운 체질입니다.<br>• 간 기능이 약해 지방 분해·대사가 원활하지 않으면 내장지방이 축적될 수 있습니다.<br>• 소화·흡수 기능이 약하지만 과식이나 기름진 음식 섭취 시 간에 부담이 쌓이며 체중이 증가합니다.<br>• 소식(小食)을 지키지 않거나 육류·유제품을 과다 섭취하면 허리 아래 부위에 지방이 축적됩니다.<br>• 허리·엉덩이가 약한 체형이므로 체중 증가 시 허리 통증이 동반되기 쉽습니다.</div></div><div class="res-sec"><div class="sec-hd">⚕ 병의 원인</div><div class="sec-body">간기능약화 — 간이 약해 해독·대사 기능이 저하됩니다.<br>얼격반위(噎膈反胃) — 식도·위 기능이 약해 역류·구토 증상이 잦습니다.</div></div><div class="res-sec"><div class="sec-hd">🍱 음식 안내</div><div class="food-row"><div class="food-col good"><b>✅ 이로운 음식</b><div class="food-tags"><span class="food-tag">메밀·귀리</span><span class="food-tag">채소류</span><span class="food-tag">해산물·새우·전복</span><span class="food-tag">모과·다래·머루</span><span class="food-tag">포도</span></div></div><div class="food-col bad"><b>❌ 해로운 음식</b><div class="food-tags"><span class="food-tag">소고기·돼지고기</span><span class="food-tag">닭고기</span><span class="food-tag">콩류·견과류</span><span class="food-tag">유제품</span><span class="food-tag">기름진 음식</span></div></div></div><div class="diet-box"><strong>💡 식단 포인트</strong>소식(小食)하고 담백하게 드세요. 채식 위주의 가벼운 식단을 유지하며, 기름진 음식과 육류는 최대한 피합니다.<br><strong>🍵 추천 차</strong>모과차 · 매실차</div></div><div class="res-sec"><div class="sec-hd">🏃 체질별 운동</div><div class="exer-tags"><span class="exer-tag">명상·기공</span><span class="exer-tag">호흡수련</span><span class="exer-tag">골프</span><span class="exer-tag">요가</span><span class="exer-tag">기체조</span></div><div class="sec-body" style="margin-top:8px">격렬한 운동보다 조용하고 정적인 운동이 맞습니다. 근지구력 강화와 호흡 중심의 운동을 권장합니다.</div></div></div>'},
+};
+
+// ── 다이어트 전략 데이터 (NEW) ────────────────────────────────
+const DIET = {
+  '태음인':{
+    headline:'"저장은 잘 되고 발산은 안 된다" — 땀이 곧 다이어트다',
+    strategy:[
+      {icon:'🌙',title:'식사 타이밍',body:'아침은 든든히, 저녁은 가볍게. 오후 7시 이후 과식은 태음인 비만의 가장 큰 원인입니다.'},
+      {icon:'⏱',title:'간헐적 단식',body:'16:8 단식에 가장 잘 맞는 체질. 단, 공복을 지키는 대신 먹을 때 폭식은 절대 금물.'},
+      {icon:'💧',title:'땀 배출이 핵심',body:'태음인은 땀을 내야 살이 빠집니다. 유산소 운동으로 매일 땀을 흘리는 것이 어떤 식이요법보다 중요합니다.'},
+      {icon:'🚫',title:'야식·과식 주의',body:'급격하게 굶으면 오히려 흡수력이 더 강해져 역효과. 조금씩 자주보다 소량·규칙적으로 먹는 것이 맞습니다.'},
+      {icon:'📊',title:'현실적 목표',body:'꾸준히 실천 시 월 1.5~2kg 감량 가능. 태음인은 살 빠지는 속도가 느린 체질이므로 조급해하지 않는 것이 중요합니다.'},
+    ]
+  },
+  '소양인':{
+    headline:'"스트레스 관리 = 다이어트" — 감정을 잡아야 뱃살이 잡힌다',
+    strategy:[
+      {icon:'🧠',title:'핵심 원칙',body:'소양인 비만의 80%는 스트레스성 폭식입니다. 감정 기복 → 과식 → 복부비만의 사이클을 끊는 것이 먼저입니다.'},
+      {icon:'🕐',title:'식사 타이밍',body:'3끼 규칙적으로 먹는 것이 핵심. 굶었다가 한꺼번에 폭식하는 패턴이 소양인에게 가장 위험합니다.'},
+      {icon:'🥗',title:'위열 다스리기',body:'서늘한 음식(보리·오이·수박)이 위장 열을 내려주면 식욕이 자연스럽게 조절됩니다. 매운 음식·기름진 음식은 위열을 더 자극합니다.'},
+      {icon:'🏋️',title:'하체 강화가 답',body:'스쿼트·런지로 하체 근육량을 늘리면 기초대사량이 올라갑니다. 체중보다 복부 둘레 관리에 집중하세요.'},
+      {icon:'📊',title:'현실적 목표',body:'4체질 중 상대적으로 감량이 빠른 편. 단, 스트레스 관리 없이는 요요가 매우 잦습니다.'},
+    ]
+  },
+  '소음인':{
+    headline:'"굶으면 절대 안 된다" — 대사를 먼저 올려야 뺄 수 있다',
+    strategy:[
+      {icon:'🌅',title:'아침 식사는 필수',body:'소음인이 아침을 거르면 기력이 떨어져 하루 활동량이 급감합니다. 적더라도 따뜻한 아침 한 끼는 반드시 챙기세요.'},
+      {icon:'🚫',title:'간헐적 단식 비적합',body:'소음인에게 간헐적 단식은 냉증 악화, 소화 기능 저하, 기력 저하를 유발합니다. 억지로 따라 하지 마세요.'},
+      {icon:'🔥',title:'체온 올리기가 핵심',body:'기초체온이 1℃ 오르면 기초대사량이 약 12% 상승합니다. 생강차·계피·대추를 꾸준히 먹고, 반신욕으로 혈액순환을 도와주세요.'},
+      {icon:'🏃',title:'무리하지 않는 운동',body:'과도한 운동은 오히려 기력을 소모시킵니다. 가벼운 조깅·요가를 꾸준히 하면서 상체 근력도 함께 키우세요.'},
+      {icon:'📊',title:'현실적 목표',body:'천천히 감량하는 체질입니다. 월 0.5~1kg이 소음인에게 지속 가능한 감량 속도입니다. 서두르면 요요가 옵니다.'},
+    ]
+  },
+  '태양인':{
+    headline:'"소식(小食)만 지켜도 절반은 성공" — 간을 쉬게 하는 것이 다이어트',
+    strategy:[
+      {icon:'🍽️',title:'소식이 전부',body:'태양인의 다이어트는 복잡하지 않습니다. 적게, 천천히, 담백하게 먹는 것만 지켜도 체중은 자연스럽게 유지됩니다.'},
+      {icon:'🥦',title:'채식·해산물 위주',body:'메밀·귀리 같은 잡곡과 채소·해산물이 태양인의 약한 소화 기능에 가장 잘 맞습니다. 전복·새우 등 해산물이 단백질 보충에 좋습니다.'},
+      {icon:'🚫',title:'육류·유제품 제한',body:'소고기·돼지고기·닭고기·유제품은 간에 직접 부담을 줍니다. 이것만 줄여도 체중과 컨디션 모두 개선됩니다.'},
+      {icon:'🧘',title:'정적 운동이 맞다',body:'격렬한 운동은 오히려 기력 소모가 큽니다. 기공·요가·호흡 수련이 태양인의 대사와 순환 개선에 더 효과적입니다.'},
+      {icon:'📊',title:'현실적 목표',body:'소식 원칙만 잘 지키면 태양인은 체중이 자연스럽게 유지됩니다. 무리한 다이어트보다 지속 가능한 소식 습관이 핵심입니다.'},
+    ]
+  },
+  '소양인(태음인)':{
+    headline:'"두 체질의 단점이 겹친다" — 스트레스 관리 + 저녁 소식이 핵심',
+    strategy:[
+      {icon:'🧠',title:'핵심 원칙',body:'소양인의 감정적 폭식 + 태음인의 높은 흡수력이 겹치는 최악의 조합을 주의하세요. 두 가지 모두 관리해야 합니다.'},
+      {icon:'🕐',title:'식사 타이밍',body:'규칙적인 3끼 + 저녁은 가볍게. 야식은 절대 금지. 소양인처럼 폭식 예방, 태음인처럼 저녁 소식을 동시에 지키세요.'},
+      {icon:'🥗',title:'식단 방향',body:'서늘하고 담백한 음식 기본. 기름진 음식과 과식을 철저히 피하세요. 해산물·채소 위주가 두 체질 모두에 맞습니다.'},
+      {icon:'💧',title:'땀+하체 운동 병행',body:'태음인처럼 땀이 나는 유산소 + 소양인처럼 하체 강화 운동을 병행하는 것이 이상적입니다.'},
+      {icon:'📊',title:'정확한 감별 권장',body:'혼합형은 정확한 체질 감별 후 맞춤 관리를 받으면 효과가 훨씬 좋습니다. 한의사 상담을 권장드립니다.'},
+    ]
+  },
+};
+
+// ── 공유 카드 테마 (NEW) ─────────────────────────────────────
+const CARD_THEME = {
+  '태음인':{gradient:'linear-gradient(150deg,#1b4332 0%,#2d6a4f 55%,#40916c 100%)',text:'#fff',accent:'rgba(255,255,255,.2)',emoji:'🌳'},
+  '소양인':{gradient:'linear-gradient(150deg,#7f1d1d 0%,#b91c1c 55%,#ef4444 100%)',text:'#fff',accent:'rgba(255,255,255,.2)',emoji:'⚡'},
+  '소양인(태음인)':{gradient:'linear-gradient(150deg,#7b2d00 0%,#c2410c 55%,#ea580c 100%)',text:'#fff',accent:'rgba(255,255,255,.2)',emoji:'⚡'},
+  '소음인':{gradient:'linear-gradient(150deg,#1e3a5f 0%,#1a5296 55%,#3b82f6 100%)',text:'#fff',accent:'rgba(255,255,255,.2)',emoji:'🌊'},
+  '태양인':{gradient:'linear-gradient(150deg,#0f172a 0%,#1e3a8a 55%,#4f46e5 100%)',text:'#fff',accent:'rgba(255,255,255,.2)',emoji:'☀️'},
+};
+
+// 공유 카드용 핵심 요약 (NEW)
+const CARD_SUMMARY = {
+  '태음인':{fat:'저장↑ 발산↓\n야식·과식이 최대 적',diet:'땀이 나는 운동 + 저녁 소식',foods:['소고기','율무','버섯','연근','칡차']},
+  '소양인':{fat:'스트레스 → 폭식\n복부비만 사이클 주의',diet:'감정 관리 = 다이어트',foods:['보리','돼지수육','오이','굴','녹차']},
+  '소양인(태음인)':{fat:'위열 폭식 + 높은 흡수력\n두 체질 단점이 겹침',diet:'스트레스 관리 + 저녁 소식',foods:['보리','해산물','오이','상추','녹차']},
+  '소음인':{fat:'체온·대사 낮아\n소식해도 살 찌는 체질',diet:'굶지 말고 따뜻하게 먹기',foods:['닭고기','찹쌀','대추','인삼','생강차']},
+  '태양인':{fat:'간 기능 약해\n과식 시 허리에 집중 축적',diet:'소식(小食)만 지켜도 유지',foods:['메밀','채소','해산물','전복','모과차']},
+};
+
+// ── 상태 ────────────────────────────────────────────────────
+let cur='Q1', hist=[], stored={}, step=0;
+let multi=null;
+let currentResultKey='';
+
+// ── 렌더링 ──────────────────────────────────────────────────
+function render(key){
+  if(key==='Q_multi'){multi={phase:'Q15',q15:null,q16:null};renderQ('Q15');return;}
+  if(RESULTS[key]){renderResult(key);return;}
+  const q=Q[key];
+  if(!q){renderResult(key);return;}
+  if(key==='Q1R'){
+    const a1=stored['Q1']??0;
+    const res=a1===2?'소양인':'태음인';
+    hist.push(cur);cur=res;renderResult(res);return;
+  }
+  renderQ(key);
+}
+
+function renderQ(key){
+  const q=Q[key];
+  const card=document.getElementById('card');
+  const nums=['①','②','③','④'];
+  const back=hist.length>0?`<button class="back-btn" onclick="goBack()">← 이전 질문</button>`:'';
+  const note=q.isRecheck?`<div class="note">📋 처음 문항을 다시 확인합니다</div>`:'';
+  card.innerHTML=`
+    <div class="q-badge">질문 ${q.num}</div>
+    ${note}
+    <div class="q-title">${q.title}</div>
+    <div class="q-sub">${q.text}</div>
+    <div class="opts">
+      ${q.opts.map((o,i)=>`
+        <button class="opt" onclick="pick('${key}',${i})">
+          <span class="opt-num">${nums[i]}</span>
+          <span>${o}</span>
+        </button>`).join('')}
+    </div>
+    ${back}`;
+  updateProg();
+}
+
+function buildDietSection(key){
+  const d=DIET[key];
+  if(!d) return '';
+  return `
+    <div class="res-sec diet-strat-sec">
+      <div class="sec-hd">🥗 체질별 다이어트 전략</div>
+      <div class="diet-headline">${d.headline}</div>
+      ${d.strategy.map(s=>`
+        <div class="strat-item">
+          <span class="strat-icon">${s.icon}</span>
+          <div class="strat-text">
+            <div class="strat-label">${s.title}</div>
+            <div class="strat-body">${s.body}</div>
+          </div>
+        </div>`).join('')}
+    </div>`;
+}
+
+function renderResult(key){
+  const r=RESULTS[key];
+  if(!r)return;
+  currentResultKey=key;
+  const card=document.getElementById('card');
+  card.innerHTML=`
+    <div class="res-wrap">
+      <div style="color:#aaa;font-size:13px;margin-bottom:10px">체질 판정 결과</div>
+      <div class="res-badge ${r.badge}">${r.label}</div>
+      <div class="res-title">${r.hanja} · ${r.label}</div>
+      <div class="res-sub">${r.sub}</div>
+      <div class="res-desc">
+        ${r.desc}
+        <div style="height:12px"></div>
+        <div class="res-sections">${buildDietSection(key)}</div>
+      </div>
+      <button class="share-btn" onclick="showShareCard('${key}')">📤 결과 카드 만들기 · 공유하기</button>
+      <div class="action-row">
+        <button class="restart" onclick="restart()">처음부터 다시하기</button>
+        <a class="dl-link" onclick="downloadSelf();return false;" href="#">⬇ 앱 저장하기</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:14px">
+        <a href="https://www.danamedi.com/" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:13px;background:#fff;color:#2a9d8f;border:2px solid #2a9d8f;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;transition:background .2s" onmouseover="this.style.background='#e8f7f5'" onmouseout="this.style.background='#fff'">🏥 계양다나음한방병원 홈페이지 바로가기</a>
+        <a href="https://naver.me/GzdQJGmH" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:13px;background:#fff;color:#03c75a;border:2px solid #03c75a;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;transition:background .2s" onmouseover="this.style.background='#e8faf0'" onmouseout="this.style.background='#fff'">📍 계양다나음한방병원 지도 바로가기</a>
+      </div>
+    </div>`;
+  document.getElementById('pFill').style.width='100%';
+  document.getElementById('stepInfo').textContent='완료';
+}
+
+// ── 공유 카드 ────────────────────────────────────────────────
+function buildShareCardHTML(key){
+  const r=RESULTS[key];
+  const theme=CARD_THEME[key]||CARD_THEME['태음인'];
+  const s=CARD_SUMMARY[key]||CARD_SUMMARY['태음인'];
+  const fatLines=s.fat.split('\n');
+  return `
+    <div class="card-inner" style="background:${theme.gradient};color:${theme.text}">
+      <div class="card-emoji-big">${theme.emoji}</div>
+      <div class="card-name-ko">${r.label}</div>
+      <div class="card-name-hanja">${r.hanja}</div>
+      <div class="card-sub-text">${r.sub}</div>
+      <div class="card-rule"></div>
+      <div class="card-blk">
+        <div class="card-blk-label">살이 찌는 이유</div>
+        <div class="card-blk-value">${fatLines.join('<br>')}</div>
+      </div>
+      <div class="card-blk">
+        <div class="card-blk-label">다이어트 핵심 전략</div>
+        <div class="card-blk-value">${s.diet}</div>
+      </div>
+      <div class="card-blk">
+        <div class="card-blk-label">추천 식품 TOP 5</div>
+        <div class="card-food-row">
+          ${s.foods.map(f=>`<span class="card-ftag">${f}</span>`).join('')}
+        </div>
+      </div>
+    </div>
+`;
+}
+
+function showShareCard(key){
+  const cardEl=document.getElementById('shareCard');
+  cardEl.innerHTML=buildShareCardHTML(key);
+  document.getElementById('shareOverlay').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+
+function closeShare(){
+  document.getElementById('shareOverlay').classList.remove('active');
+  document.body.style.overflow='';
+}
+
+function overlayClick(e){
+  if(e.target===document.getElementById('shareOverlay')) closeShare();
+}
+
+async function shareCard(btn){
+  const card=document.getElementById('shareCard');
+  const orig=btn.textContent;
+  btn.textContent='⏳ 생성 중...';
+  btn.disabled=true;
+  try{
+    const canvas=await html2canvas(card,{scale:2.5,useCORS:true,backgroundColor:null,logging:false});
+    await new Promise((resolve,reject)=>{
+      canvas.toBlob(async blob=>{
+        try{
+          const file=new File([blob],`사상체질_${currentResultKey||'결과'}.png`,{type:'image/png'});
+          if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
+            await navigator.share({
+              title:`나의 체질은 ${currentResultKey}`,
+              text:`사상체질 가이드에서 내 체질을 확인했어요!\n계양다나음한방병원`,
+              files:[file]
+            });
+          }else if(navigator.share){
+            await navigator.share({
+              title:`나의 체질은 ${currentResultKey}`,
+              text:`사상체질 가이드에서 내 체질을 확인했어요!\n계양다나음한방병원`,
+              url:'https://www.danamedi.com/'
+            });
+          }else{
+            document.getElementById('shareTip').textContent='이 브라우저는 공유를 지원하지 않습니다. 아래 저장 버튼으로 이미지를 저장 후 직접 공유해 주세요.';
+          }
+          resolve();
+        }catch(e){
+          if(e.name!=='AbortError') reject(e);
+          else resolve();
+        }
+      },'image/png');
+    });
+  }catch(e){
+    alert('공유 중 오류가 발생했습니다.\n이미지 저장 후 직접 공유해 주세요.');
+  }
+  btn.textContent=orig;
+  btn.disabled=false;
+}
+
+async function downloadCard(btn){
+  const card=document.getElementById('shareCard');
+  const orig=btn.textContent;
+  btn.textContent='⏳ 생성 중...';
+  btn.disabled=true;
+  try{
+    const canvas=await html2canvas(card,{
+      scale:2.5,
+      useCORS:true,
+      backgroundColor:null,
+      logging:false,
+    });
+    const link=document.createElement('a');
+    const rKey=currentResultKey||'체질';
+    link.download=`사상체질_${rKey}_계양다나음.png`;
+    link.href=canvas.toDataURL('image/png');
+    link.click();
+  }catch(e){
+    alert('저장 기능을 지원하지 않는 브라우저입니다.\n카드를 꾹 눌러 저장하거나 스크린샷을 이용해 주세요.');
+  }
+  btn.textContent=orig;
+  btn.disabled=false;
+}
+
+// ── 답변 처리 ────────────────────────────────────────────────
+function pick(key,a){
+  stored[key]=a;
+  if(key==='Q15'){multi.q15=a;multi.phase='Q16';renderQ('Q16');return;}
+  if(key==='Q16'){
+    multi.q16=a;
+    const q15=multi.q15,q16=a;
+    if(q15===0&&q16===1){hist.push(cur);cur='소양인';renderResult('소양인');return;}
+    if(q15===1&&q16===0){hist.push(cur);cur='태음인';renderResult('태음인');return;}
+    multi.phase='Q14B';renderQ('Q14B');return;
+  }
+  if(key==='Q14B'){
+    const res=a===0?'소음인':'태음인';
+    hist.push(cur);cur=res;renderResult(res);return;
+  }
+  const q=Q[key];
+  const next=q.next(a);
+  hist.push(cur);cur=next;step++;render(next);
+}
+
+function goBack(){
+  if(hist.length===0)return;
+  if(multi){
+    if(multi.phase==='Q16'){multi.phase='Q15';multi.q15=null;renderQ('Q15');return;}
+    if(multi.phase==='Q14B'){multi.phase='Q16';multi.q16=null;renderQ('Q16');return;}
+  }
+  multi=null;cur=hist.pop();step=Math.max(0,step-1);render(cur);
+}
+
+function restart(){
+  cur='Q1';hist=[];stored={};multi=null;step=0;currentResultKey='';render('Q1');
+}
+
+function downloadSelf(){
+  const html=document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='사상체질_가이드_계양다나음.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function updateProg(){
+  const pct=Math.min(step/9*100,90);
+  document.getElementById('pFill').style.width=pct+'%';
+  document.getElementById('stepInfo').textContent=`${step}번째 질문`;
+}
+
+// ── 온보딩 슬라이드 ─────────────────────────────────────────
+const OB_SLIDES = [
+  {
+    render: () => `
+      <span class="ob-icon-big">🌿</span>
+      <div class="ob-eyebrow">계양다나음한방병원</div>
+      <div class="ob-title">나의 체질은<br><em>무엇일까요?</em></div>
+      <div class="ob-sub">이제마 선생의 사상의학으로<br>나에게 딱 맞는 음식·운동·생활습관을<br>찾아드립니다</div>`
+  },
+  {
+    render: () => `
+      <div class="ob-types-label">🧬 사상체질 4가지 유형</div>
+      <div class="ob-types-grid">
+        <div class="ob-tc te"><span class="ob-tc-emoji">🌳</span><div class="ob-tc-name">태음인</div><div class="ob-tc-hanja">太陰人</div><div class="ob-tc-pct">약 50%</div><div class="ob-tc-desc">끈기 있고 보수적<br>살이 찌기 쉬운 체질</div></div>
+        <div class="ob-tc sy"><span class="ob-tc-emoji">🔥</span><div class="ob-tc-name">소양인</div><div class="ob-tc-hanja">少陽人</div><div class="ob-tc-pct">약 30%</div><div class="ob-tc-desc">활동적이고 외향적<br>역삼각형 체형</div></div>
+        <div class="ob-tc se"><span class="ob-tc-emoji">💧</span><div class="ob-tc-name">소음인</div><div class="ob-tc-hanja">少陰人</div><div class="ob-tc-pct">약 20%</div><div class="ob-tc-desc">섬세하고 내향적<br>소화 기능이 약한 편</div></div>
+        <div class="ob-tc ty"><span class="ob-tc-emoji">✨</span><div class="ob-tc-name">태양인</div><div class="ob-tc-hanja">太陽人</div><div class="ob-tc-pct">1% 미만</div><div class="ob-tc-desc">창의적이고 진취적<br>매우 희귀한 체질</div></div>
+      </div>`
+  }
+];
+
+let obStep = 0;
+
+function obRender(idx) {
+  document.getElementById('obBody').innerHTML = OB_SLIDES[idx].render();
+  const dots = document.getElementById('obDots').children;
+  for (let i = 0; i < dots.length; i++) dots[i].classList.toggle('active', i === idx);
+  document.getElementById('obNextBtn').textContent =
+    idx === OB_SLIDES.length - 1 ? '체질 검사 시작하기 →' : '다음';
+}
+
+function obNext() {
+  if (obStep < OB_SLIDES.length - 1) { obStep++; obRender(obStep); }
+  else startQuiz();
+}
+
+function startQuiz() {
+  document.getElementById('obScreen').style.display = 'none';
+  document.getElementById('quizHeader').style.display = '';
+  document.getElementById('card').style.display = '';
+  render('Q1');
+}
+
+obRender(0);
+</script>
+
+
+</body></html>
